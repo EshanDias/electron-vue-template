@@ -15,17 +15,12 @@ const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    contextIsolation: true
   });
 
   // and load the index.html of the app.
-  console.log('path', MAIN_WINDOW_WEBPACK_ENTRY);
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
-  // process.env.NODE_ENV === 'development'
-  //   ? mainWindow.loadURL(
-  //       `file://${path.resolve(__dirname, '../renderer/main/index.js')}`
-  //     )
-  //   : mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
