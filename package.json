@@ -1,8 +1,8 @@
 {
-  "name": "my-new-app",
-  "productName": "my-new-app",
+  "name": "electron-vue-template",
+  "productName": "Electron Vue Template",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "My Electron Vue Custom Template",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
@@ -21,7 +21,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "my_new_app"
+            "name": "electron-vue-template"
           }
         },
         {
@@ -48,8 +48,8 @@
               "config": "./webpack.renderer.config.js",
               "entryPoints": [
                 {
-                  "html": "./src/index.html",
-                  "js": "./src/renderer.js",
+                  "html": "./src/renderer/index.html",
+                  "js": "./src/renderer/renderer.js",
                   "name": "main_window"
                 }
               ]
