@@ -36,8 +36,10 @@ module.exports = [
     options: {
       extractCSS: true,
       loaders: {
-        sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-        scss: 'vue-style-loader!css-loader!sass-loader'
+        sass:
+          'vue-style-loader!css-loader!sass-loader?indentedSyntax=1&data=@import "./src/renderer/assets/css/main"',
+        scss:
+          'vue-style-loader!css-loader!sass-loader?data=@import "./src/renderer/assets/css/main";'
       },
       compiler: VueTemplateCompiler,
       compilerOptions: {
@@ -68,9 +70,9 @@ module.exports = [
       'vue-style-loader',
       {
         loader: 'css-loader',
-        options: { modules: true }
+        options: { sourceMap: true, modules: true }
       },
-      'sass-loader'
+      { loader: 'sass-loader', options: { sourceMap: true } }
     ]
   },
   {
