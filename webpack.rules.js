@@ -1,5 +1,3 @@
-const VueTemplateCompiler = require('vue-template-compiler');
-
 module.exports = [
   {
     test: /\.(j|t)s$/,
