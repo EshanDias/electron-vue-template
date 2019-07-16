@@ -1,89 +1,57 @@
 const VueTemplateCompiler = require('vue-template-compiler');
 
 module.exports = [
-  // Add support for native node modules
+  {
+    test: /\.(j|t)s$/,
+    use: 'babel-loader',
+    exclude: /node_modules/,
+  },
   {
     test: /\.node$/,
-    use: 'node-loader'
-  },
-  {
-    test: /\.(m?js|node)$/,
-    parser: { amd: false },
-    use: {
-      loader: '@marshallofsound/webpack-asset-relocator-loader',
-      options: {
-        outputAssetBase: 'native_modules'
-      }
-    }
-  },
-  {
-    test: /\.html$/,
-    use: 'vue-html-loader'
-  },
-  {
-    test: /\.js$/,
-    exclude: /(node_modules|bower_components)/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env', '@vue/app']
-      }
-    }
+    use: 'node-loader',
   },
   {
     test: /\.vue$/,
-    loader: 'vue-loader',
-    options: {
-      extractCSS: true,
-      loaders: {
-        sass:
-          'vue-style-loader!css-loader!sass-loader?indentedSyntax=1&data=@import "./src/renderer/assets/css/main"',
-        scss:
-          'vue-style-loader!css-loader!sass-loader?data=@import "./src/renderer/assets/css/main";'
+    use: {
+      loader: 'vue-loader',
+      options: {
+        loaders: {
+          sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+        },
       },
-      compiler: VueTemplateCompiler,
-      compilerOptions: {
-        type: Object,
-        default: {
-          preserveWhitespace: false
-        }
+    },
+  },
+  {
+    test: /\.s(c|a)ss$/,
+    use: [
+      {
+        loader: 'vue-style-loader',
       },
-      hotReload: true
-    }
+      {
+        loader: 'css-loader',
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          // eslint-disable-next-line
+          implementation: require('sass'),
+        },
+      },
+    ],
   },
   {
     test: /\.css$/,
-    use: [
-      'vue-style-loader',
-      {
-        loader: 'css-loader',
-        options: {
-          // enable CSS Modules
-          modules: true
-        }
-      }
-    ]
+    use: ['style-loader', 'css-loader'],
   },
   {
-    test: /\.scss$/,
-    use: [
-      'vue-style-loader',
-      {
-        loader: 'css-loader',
-        options: { sourceMap: true, modules: true }
-      },
-      { loader: 'sass-loader', options: { sourceMap: true } }
-    ]
-  },
-  {
-    test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+    test: /\.(png|jpe?g|gif|tif?f|bmp|webp|svg)(\?.*)?$/,
     use: {
       loader: 'url-loader',
       query: {
         limit: 10000,
-        name: 'imgs/[name].[ext]'
-      }
-    }
+        name: 'imgs/[name]--[folder].[ext]',
+      },
+    },
   },
   {
     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -91,8 +59,8 @@ module.exports = [
       loader: 'url-loader',
       query: {
         limit: 10000,
-        name: 'fonts/[name].[ext]'
-      }
-    }
-  }
+        name: 'fonts/[name]--[folder].[ext]',
+      },
+    },
+  },
 ];
