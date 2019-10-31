@@ -1,19 +1,54 @@
 {
   "name": "electron-vue-template",
-  "productName": "Electron Vue Template",
   "version": "1.0.0",
   "description": "My Electron Vue Custom Template",
-  "main": ".webpack/main",
-  "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
-  },
-  "keywords": [],
   "author": "eshandias",
-  "license": "MIT",
+  "scripts": {
+    "lint": "vue-cli-service lint",
+    "make": "electron-forge make",
+    "package": "electron-forge package",
+    "publish": "electron-forge publish",
+    "start": "electron-forge start"
+  },
+  "main": ".webpack/main",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "lodash": "^4.17.14",
+    "vue": "^2.6.10",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@electron-forge/cli": "^6.0.0-beta.39",
+    "@electron-forge/maker-deb": "^6.0.0-beta.39",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.39",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.39",
+    "@electron-forge/maker-zip": "^6.0.0-beta.39",
+    "@electron-forge/plugin-webpack": "^6.0.0-beta.39",
+    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^4.0.5",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "devtron": "^1.4.0",
+    "electron": "5.0.6",
+    "electron-debug": "^3.0.1",
+    "electron-devtools-installer": "^2.2.4",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-loader": "^0.6.0",
+    "node-sass": "^4.12.0",
+    "sass": "^1.22.5",
+    "sass-loader": "^7.1.0",
+    "url-loader": "^2.0.1",
+    "vue-devtools": "^5.1.0",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.35.2"
+  },
   "config": {
     "forge": {
       "packagerConfig": {},
@@ -59,37 +94,7 @@
       ]
     }
   },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "vue": "^2.6.10",
-    "vuex": "^3.1.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@electron-forge/cli": "^6.0.0-beta.39",
-    "@electron-forge/maker-deb": "^6.0.0-beta.39",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.39",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.39",
-    "@electron-forge/maker-zip": "^6.0.0-beta.39",
-    "@electron-forge/plugin-webpack": "^6.0.0-beta.39",
-    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.0.0",
-    "devtron": "^1.4.0",
-    "electron": "5.0.6",
-    "electron-debug": "^3.0.1",
-    "electron-devtools-installer": "^2.2.4",
-    "node-loader": "^0.6.0",
-    "node-sass": "^4.12.0",
-    "sass": "^1.22.5",
-    "sass-loader": "^7.1.0",
-    "url-loader": "^2.0.1",
-    "vue-devtools": "^5.1.0",
-    "vue-html-loader": "^1.2.4",
-    "vue-loader": "^15.7.0",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.35.2"
-  }
+  "keywords": [],
+  "license": "MIT",
+  "productName": "Electron Vue Template"
 }
